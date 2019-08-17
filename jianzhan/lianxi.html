@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/tong.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		
+		<style>
+			
+    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+			.zhong_div1>div{
+				width:75px;
+			}
+			.lianxi_img1 *{
+				color: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--头部-->
+		<div class="tou">
+			<!--导航栏-->
+			<div class="nav">
+				<div class="nav_zh">
+					<div class="top1">
+						<img src="image/index/logo1.png" />
+					</div>
+					<div class="top2">
+						<ul>
+							<li>
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="fuwu.html">服务</a>
+							</li>
+							<li>
+								<a href="anli.html">案例</a>
+							</li>
+							<li>
+								<a href="new1.html">新闻</a>
+							</li>
+							<li>
+								<a href="guanyu.html">关于</a>
+							</li>
+							<li>
+								<a href="lianxi.html" class="moren">联系</a>
+							</li>
+						</ul>
+					</div>
+					<div class="top3">
+						<img src="image/index/电话.png" />
+						<span>020-28035965</span>
+					</div>
+				</div>
+			</div>
+
+			<img class="tu" src="image/lianxi/矩形-15-拷贝1.png" />
+			<div class="tou_da">
+				<div class="zh">
+					<div class="tou_div1">
+						<span class="tou_span1">do one's level best</span>
+						<div>
+							<span style="font-size:44px; ">每一个梦想，我们都全力以赴</span>
+							<p style="font-size:12px;">Every dream, we all do our best</p>
+							<p style="font-size:30px; margin:30px 0 15px 0;">GO</p>
+							<img src="image/anli/箭头.png" />
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--中间-->
+		
+		<div class="zhong">
+			<div class="zh">
+			<div class="zhong_div1" style="width:250px;">
+				<div class="zhong_left">C</div>
+				<div class="zhong_right" style="width: 125px;">
+					<span>联系广微聚</span>
+					<p>ontact us</p>
+				</div>
+			</div>
+			
+			
+			<div class="lianxi_div1">
+				<div class="lianxi_div2">
+					<img src="image/lianxi/地址.png" />
+					<p class="lianxi_p1">公司地址</p>
+					<p>地球中国广东省广州市白云区江高镇黑龙江尽头直走一白米</p>
+				</div>
+				<div class="lianxi_div3">
+					<img src="image/lianxi/手机.png" />
+					<p class="lianxi_p1">联系方式</p>
+					<p>020-222222222</p>
+					<p>12345678910</p>
+				</div>
+				<div class="lianxi_div4">
+					<img src="image/lianxi/邮箱-.png" />
+					<p class="lianxi_p1">广微聚邮箱</p>
+					<p>12345678910@163.com</p>
+				</div>
+				<div class="lianxi_div5">
+					<img src="image/lianxi/qq.png" />
+					<p class="lianxi_p1">联系QQ</p>
+					<p>123456789</p>
+				</div>
+			</div>
+			
+			
+			
+			
+		
+		</div>
+		</div>
+		
+		<div class="lianxi_img1">
+			<div style="width:100%;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
+		</div>
+		
+		<!--底部-->
+		<div class="bottom">
+			<p>
+				Copyright © 2008-2015 广州邦聚网络技术有限公司 粤ICP备16049015号-1
+			</p>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMarker();//向地图中添加marker
+    }
+    
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(113.229428,23.272986);//定义一个中心点坐标
+        map.centerAndZoom(point,16);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+    
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+    
+    //地图控件添加函数：
+    function addMapControl(){
+        //向地图中添加缩放控件
+	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+	map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+	map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+	map.addControl(ctrl_sca);
+    }
+    
+    //标注点数组
+    var markerArr = [{title:"老林赌坊",content:"联系电话：12345678910<br/>联系人：林",point:"113.225197|23.275676",isOpen:1,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+		 ];
+    //创建marker
+    function addMarker(){
+        for(var i=0;i<markerArr.length;i++){
+            var json = markerArr[i];
+            var p0 = json.point.split("|")[0];
+            var p1 = json.point.split("|")[1];
+            var point = new BMap.Point(p0,p1);
+			var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point,{icon:iconImg});
+			var iw = createInfoWindow(i);
+			var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+			marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                        borderColor:"#808080",
+                        color:"#333",
+                        cursor:"pointer"
+            });
+			
+			(function(){
+				var index = i;
+				var _iw = createInfoWindow(i);
+				var _marker = marker;
+				_marker.addEventListener("click",function(){
+				    this.openInfoWindow(_iw);
+			    });
+			    _iw.addEventListener("open",function(){
+				    _marker.getLabel().hide();
+			    })
+			    _iw.addEventListener("close",function(){
+				    _marker.getLabel().show();
+			    })
+				label.addEventListener("click",function(){
+				    _marker.openInfoWindow(_iw);
+			    })
+				if(!!json.isOpen){
+					label.hide();
+					_marker.openInfoWindow(_iw);
+				}
+			})()
+        }
+    }
+    //创建InfoWindow
+    function createInfoWindow(i){
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+        return iw;
+    }
+    //创建一个Icon
+    function createIcon(json){
+        var icon = new BMap.Icon("image/lianxi/002.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+        return icon;
+    }
+    
+    initMap();//创建和初始化地图
+</script>
+
+
+</html>

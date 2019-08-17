@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.container { width: 980px; margin: 0 auto; height: auto; background: #aaa;} 
+.content { height: 2000px; border: 1px solid blue; } 
+#btn { 
+position:fixed; 
+bottom: 50px; 
+right: 0; 
+width: 54px; 
+height: 55px; 
+background: url(image/top.png)) no-repeat 0 -110px; } 
+font-size: 12px; 
+line-height: 55px; 
+text-align: center; 
+text-indent: -9999em; 
+cursor: pointer; 
+display: none; 
+		</style>
+	</head>
+
+	<body>
+		
+<div class="container"> 
+<div class="header">头部</div> 
+<div class="content">主要内容，高度是2000px</div> 
+<div class="footer">底部</div> 
+<div id="btn">返回顶部</div> 
+</div> 
+
+	</body>
+	<script>
+		 
+window.addEventListener("load",function() { 
+var btn = document.getElementById("btn"); 
+btn.addEventListener("mouseover",moveIn, false); 
+btn.addEventListener("mouseout", moveOut, false); 
+
+function moveIn() { 
+/*btn.style.color = "#ffffff"; //修改的是内联样式，具有最高的优先级; 
+btn.style.textIndent = "0em"; 
+btn.style.backgroundImage = "none"; 
+btn.style.backgroundColor = "#FF4401"; */
+} 
+function moveOut() { 
+/*btn.style.textIndent = "-9999em"; 
+btn.style.backgroundImage = "url(image/top.png)"; */
+} 
+
+function goTop(acceleration, time) { //修改参数可调整返回顶部的速度 
+acceleration = acceleration || 0.1; 
+time = time || 10; 
+var speed = 1 + acceleration; 
+function getScrollTop() { //取得滚动条的竖直距离 
+return document.documentElement.scrollTop || document.body.scrollTop; 
+} 
+function setScrollTop(value) { //设置滚动条的竖直距离,实现效果的关键就是在很短的间隔时间内不断地修改滚动条的竖直距离,以实现滚动效果 
+document.documentElement.scrollTop = value; 
+document.body.scrollTop = value; 
+} 
+/*window.onscroll = function() { 
+var scrollTop = getScrollTop(); 
+if (scrollTop > 100) { //判断滚动条距离窗口顶部多远时显示出来，这里是100px 
+btn.style.display = "block"; 
+} else { 
+btn.style.display = "none"; 
+}; */
+btn.onclick = function () { 
+var timer = setInterval(function() { 
+setScrollTop(Math.floor(getScrollTop() / speed)); //这行代码是关键，取得滚动条竖直距离，除以speed后再给滚动条设置竖直距离 
+if (getScrollTop() == 0) 
+clearInterval(timer); 
+}, time); 
+}; 
+} 
+goTop(0.2, 8); 
+}, false); 
+
+	</script>
+
+</html>
